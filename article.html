@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">लेख — इंटरनेट की आवाज़</title>
+  <meta name="description" id="page-desc" content="">
+  <meta property="og:title" id="og-title" content="">
+  <meta property="og:description" id="og-desc" content="">
+  <meta property="og:image" id="og-image" content="">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="assets/images/logo.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/dark-mode.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <!-- ═══ Top Bar ═══ -->
+  <div class="top-bar">
+    <div class="container flex-between">
+      <div class="date-display">
+        <i class="far fa-calendar-alt"></i>
+        <span id="hindi-date"></span>
+      </div>
+      <div class="top-bar-links">
+        <a href="about.html">हमारे बारे में</a>
+        <a href="contact.html">संपर्क करें</a>
+        <a href="admin.html">Admin</a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/Internetkiawaaz/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/internetkiawaaz" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/internetkiawaaz" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <button class="dark-mode-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Header ═══ -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-main">
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo.png" alt="इंटरनेट की आवाज़" class="logo-img">
+          <div class="logo-text">
+            <span class="logo-name">इंटरनेट की आवाज़</span>
+            <span class="logo-tagline">सच की आवाज़, हर ख़बर आपके साथ</span>
+          </div>
+        </a>
+        <div class="search-bar" id="header-search">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="खबरें खोजें..." aria-label="Search news">
+        </div>
+      </div>
+    </div>
+    <nav class="main-nav" id="main-nav">
+      <div class="container flex-between">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="index.html" class="active"><i class="fas fa-home"></i> होम</a></li>
+          <li class="nav-item"><a href="category.html?cat=breaking">🔴 ताज़ा खबर</a></li>
+          <li class="nav-item"><a href="category.html?cat=politics">🏛️ राजनीति</a></li>
+          <li class="nav-item"><a href="category.html?cat=crime">🚔 अपराध</a></li>
+          <li class="nav-item"><a href="category.html?cat=entertainment">🎬 मनोरंजन</a></li>
+          <li class="nav-item"><a href="category.html?cat=sports">🏏 खेल</a></li>
+          <li class="nav-item"><a href="category.html?cat=business">💼 व्यापार</a></li>
+          <li class="nav-item"><a href="category.html?cat=health">🏥 स्वास्थ्य</a></li>
+          <li class="nav-item"><a href="category.html?cat=education">📚 शिक्षा</a></li>
+          <li class="nav-item"><a href="category.html?cat=local">📍 स्थानीय</a></li>
+          <li class="nav-item"><a href="category.html?cat=video">🎥 वीडियो</a></li>
+        </ul>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <div style="padding: 0 var(--space-6); margin-bottom: var(--space-4);">
+      <a href="index.html" class="logo" style="margin-bottom: var(--space-4); display:flex; gap:8px; align-items:center;">
+        <img src="assets/images/logo.png" alt="Logo" style="height:36px;">
+        <span style="color:var(--color-primary); font-weight:800; font-size:1.1rem;">इंटरनेट की आवाज़</span>
+      </a>
+    </div>
+    <ul>
+      <li class="nav-item"><a href="index.html"><i class="fas fa-home"></i> होम</a></li>
+      <li class="nav-item"><a href="category.html?cat=breaking">🔴 ताज़ा खबर</a></li>
+      <li class="nav-item"><a href="category.html?cat=politics">🏛️ राजनीति</a></li>
+      <li class="nav-item"><a href="category.html?cat=crime">🚔 अपराध</a></li>
+      <li class="nav-item"><a href="category.html?cat=entertainment">🎬 मनोरंजन</a></li>
+      <li class="nav-item"><a href="category.html?cat=sports">🏏 खेल</a></li>
+      <li class="nav-item"><a href="category.html?cat=business">💼 व्यापार</a></li>
+      <li class="nav-item"><a href="category.html?cat=health">🏥 स्वास्थ्य</a></li>
+      <li class="nav-item"><a href="category.html?cat=education">📚 शिक्षा</a></li>
+      <li class="nav-item"><a href="category.html?cat=local">📍 स्थानीय</a></li>
+      <li class="nav-item"><a href="category.html?cat=video">🎥 वीडियो</a></li>
+    </ul>
+  </div>
+
+  <div class="ticker-bar">
+    <div class="ticker-label">ब्रेकिंग न्यूज़</div>
+    <div class="ticker-content"><div class="ticker-track" id="ticker-track"></div></div>
+  </div>
+
+  <main class="container" style="padding-top:var(--space-6);">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" id="breadcrumb">
+      <a href="index.html">होम</a><span class="separator">/</span>
+      <a href="#" id="bread-cat">श्रेणी</a><span class="separator">/</span>
+      <span class="current" id="bread-title">लेख</span>
+    </nav>
+
+    <div class="main-layout">
+      <div class="main-content">
+        <article>
+          <div class="article-header">
+            <div class="article-category" id="article-badge"></div>
+            <h1 id="article-title">लोड हो रहा है...</h1>
+            <div class="article-meta" id="article-meta"></div>
+          </div>
+          <div class="article-featured-image" id="article-image-wrap"></div>
+
+          <!-- Share Buttons -->
+          <div style="margin-bottom:var(--space-6);">
+            <p style="font-size:var(--text-sm); font-weight:var(--font-semibold); margin-bottom:var(--space-2);">शेयर करें:</p>
+            <div class="share-buttons">
+              <button class="share-btn whatsapp" data-share="whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></button>
+              <button class="share-btn facebook" data-share="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></button>
+              <button class="share-btn twitter" data-share="twitter" title="Twitter"><i class="fab fa-twitter"></i></button>
+              <button class="share-btn telegram" data-share="telegram" title="Telegram"><i class="fab fa-telegram-plane"></i></button>
+              <button class="share-btn copy-link" data-share="copyLink" title="Copy Link"><i class="fas fa-link"></i></button>
+            </div>
+          </div>
+
+          <div class="article-body" id="article-body"></div>
+
+          <div class="article-tags" id="article-tags"></div>
+        </article>
+
+        <!-- Related Articles -->
+        <section style="padding-top:var(--space-8);">
+          <div class="section-heading"><h2>📰 संबंधित खबरें</h2></div>
+          <div class="news-grid" id="related-articles"></div>
+        </section>
+      </div>
+
+      <aside class="sidebar">
+        <div class="sidebar-widget">
+          <h3 class="widget-title">🔥 ट्रेंडिंग</h3>
+          <div class="trending-list" id="trending-list"></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <!-- ═══ Footer ═══ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>इंटरनेट की आवाज़</h3>
+          <p>सच की आवाज़, हर ख़बर आपके साथ। लखनऊ, गोंडा और पूरे उत्तर प्रदेश की ताज़ा और विश्वसनीय खबरें।</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/Internetkiawaaz/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/internetkiawaaz" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/internetkiawaaz" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/917905895936" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://share.google/hPRsqUP08zQfwfrJN" target="_blank"><i class="fab fa-google"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>श्रेणियाँ</h3>
+          <ul>
+            <li><a href="category.html?cat=politics"><i class="fas fa-chevron-right"></i> राजनीति</a></li>
+            <li><a href="category.html?cat=crime"><i class="fas fa-chevron-right"></i> अपराध</a></li>
+            <li><a href="category.html?cat=sports"><i class="fas fa-chevron-right"></i> खेल</a></li>
+            <li><a href="category.html?cat=entertainment"><i class="fas fa-chevron-right"></i> मनोरंजन</a></li>
+            <li><a href="category.html?cat=business"><i class="fas fa-chevron-right"></i> व्यापार</a></li>
+            <li><a href="category.html?cat=local"><i class="fas fa-chevron-right"></i> स्थानीय खबरें</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>त्वरित लिंक</h3>
+          <ul>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> हमारे बारे में</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> संपर्क करें</a></li>
+            <li><a href="terms.html"><i class="fas fa-chevron-right"></i> नियम और शर्तें</a></li>
+            <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> गोपनीयता नीति</a></li>
+            <li><a href="disclaimer.html"><i class="fas fa-chevron-right"></i> अस्वीकरण</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>संपर्क</h3>
+          <p><i class="fas fa-map-marker-alt"></i> लखनऊ, उत्तर प्रदेश, भारत</p>
+          <p><i class="fas fa-envelope"></i> info@internetkiawaaz.com</p>
+          <p><i class="fas fa-phone"></i> +91-7905895936</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024-2026 इंटरनेट की आवाज़ | Internet Ki Awaaz. सर्वाधिकार सुरक्षित।</p>
+        <p>Designed with ❤️ in Lucknow</p>
+      </div>
+    </div>
+  </footer>
+
+  
+  <button class="back-to-top" id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="js/data.js"></script>
+  <script src="js/sample-data.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      initSampleData();
+      document.getElementById('hindi-date').textContent = getHindiDate();
+      DarkMode.init(); Ticker.init(); SearchEngine.init(); initStickyHeader(); initMobileMenu(); initBackToTop();
+      Share.init();
+      renderArticle();
+    });
+
+    function renderArticle() {
+      const id = getUrlParam('id');
+      if (!id) { location.href = 'index.html'; return; }
+      const article = DataStore.getById('articles', id);
+      if (!article) { location.href = '404.html'; return; }
+
+      DataStore.incrementViews(id);
+
+      // SEO
+      document.getElementById('page-title').textContent = (article.seoTitle || article.title) + ' — इंटरनेट की आवाज़';
+      document.getElementById('page-desc').content = article.seoDescription || article.excerpt || '';
+      document.getElementById('og-title').content = article.title;
+      document.getElementById('og-desc').content = article.excerpt || '';
+
+      // Breadcrumb
+      const catName = getCategoryName(article.category);
+      document.getElementById('bread-cat').textContent = catName;
+      document.getElementById('bread-cat').href = `category.html?cat=${article.category}`;
+      document.getElementById('bread-title').textContent = article.title.substring(0, 40) + '...';
+
+      // Article
+      document.getElementById('article-badge').innerHTML = `<span class="category-badge ${getCategoryClass(article.category)}">${catName}</span>`;
+      document.getElementById('article-title').textContent = article.title;
+      document.getElementById('article-meta').innerHTML = `
+        <span><i class="far fa-user"></i> ${article.author || 'संपादक'}</span>
+        <span><i class="far fa-calendar"></i> ${new Date(article.publishDate).toLocaleDateString('hi-IN', {year:'numeric',month:'long',day:'numeric'})}</span>
+        <span><i class="far fa-eye"></i> ${article.views || 0} बार पढ़ा गया</span>
+      `;
+
+      const imgSrc = article.thumbnail || 'assets/images/hero-banner.png';
+      document.getElementById('article-image-wrap').innerHTML = `<img src="${imgSrc}" alt="${article.title}">`;
+      document.getElementById('article-body').innerHTML = article.body || '<p>सामग्री उपलब्ध नहीं है।</p>';
+
+      // Tags
+      if (article.tags && article.tags.length) {
+        document.getElementById('article-tags').innerHTML = article.tags.map(t => `<span class="tag">#${t}</span>`).join('');
+      }
+
+      // Related
+      const related = DataStore.getByCategory(article.category, 4).filter(a => a.id !== id).slice(0, 3);
+      document.getElementById('related-articles').innerHTML = related.map(a => `
+        <article class="news-card" onclick="location.href='article.html?id=${a.id}'">
+          <div class="card-image"><img src="${a.thumbnail || 'assets/images/hero-banner.png'}" alt="${a.title}" loading="lazy" class="loaded"></div>
+          <div class="card-body"><h3 class="card-title line-clamp-2">${a.title}</h3><div class="card-meta"><span>${timeAgo(a.publishDate)}</span></div></div>
+        </article>
+      `).join('') || '<p style="color:var(--text-tertiary);">कोई संबंधित खबर नहीं मिली।</p>';
+
+      // Trending
+      const trending = DataStore.getTrending(8);
+      document.getElementById('trending-list').innerHTML = trending.map((a,i) => `
+        <div class="trending-item" onclick="location.href='article.html?id=${a.id}'">
+          <span class="trending-number">${String(i+1).padStart(2,'0')}</span>
+          <div><div class="trending-title line-clamp-2">${a.title}</div><div class="trending-time">${timeAgo(a.publishDate)}</div></div>
+        </div>
+      `).join('');
+
+      // Schema
+      const schema = document.createElement('script');
+      schema.type = 'application/ld+json';
+      schema.textContent = JSON.stringify({
+        "@context":"https://schema.org","@type":"NewsArticle",
+        "headline": article.title, "datePublished": article.publishDate,
+        "author":{"@type":"Person","name": article.author || 'संपादक'},
+        "publisher":{"@type":"Organization","name":"इंटरनेट की आवाज़"},
+        "description": article.excerpt || ''
+      });
+      document.head.appendChild(schema);
+    }
+  </script>
+</body>
+</html>

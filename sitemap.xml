@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  <url><loc>https://www.internetkiawaaz.com/</loc><changefreq>always</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/category.html?cat=politics</loc><changefreq>hourly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/category.html?cat=crime</loc><changefreq>hourly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/category.html?cat=entertainment</loc><changefreq>hourly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/category.html?cat=sports</loc><changefreq>hourly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/category.html?cat=business</loc><changefreq>hourly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/category.html?cat=health</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/category.html?cat=education</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/category.html?cat=local</loc><changefreq>hourly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/category.html?cat=video</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/video.html</loc><changefreq>daily</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/about.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/contact.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/terms.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/privacy.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.internetkiawaaz.com/disclaimer.html</loc><changefreq>yearly</changefreq><priority>0.3</priority></url>
+</urlset>

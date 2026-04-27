@@ -1,0 +1,104 @@
+/* ========================================
+   INTERNET KI AWAAZ — Dark Mode
+   ======================================== */
+.dark-mode {
+  --bg-primary: #121212;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #242424;
+  --bg-card: #1e1e1e;
+  --bg-header: #0a0a1a;
+  --bg-footer: #0a0a0a;
+  --bg-sidebar: #1e1e1e;
+
+  --text-primary: #e0e0e0;
+  --text-secondary: #aaaaaa;
+  --text-tertiary: #777777;
+  --text-link: #82b1ff;
+  --text-link-hover: #448aff;
+
+  --color-gray-100: #2a2a2a;
+  --color-gray-200: #333333;
+  --color-gray-300: #444444;
+  --color-gray-400: #666666;
+
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode img {
+  filter: brightness(0.9);
+}
+
+.dark-mode .site-header {
+  background: var(--bg-card);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.dark-mode .news-card {
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.dark-mode .news-card .card-meta {
+  border-top-color: rgba(255,255,255,0.1);
+}
+
+.dark-mode .news-card-horizontal {
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.dark-mode .trending-item {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+
+.dark-mode .search-bar {
+  background: var(--bg-tertiary);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.dark-mode .search-bar input {
+  color: var(--text-primary);
+}
+
+.dark-mode .tag {
+  background: var(--bg-tertiary);
+  color: var(--text-secondary);
+}
+
+.dark-mode .section-heading {
+  border-bottom-color: var(--color-primary);
+}
+
+.dark-mode .sidebar-widget {
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.dark-mode .category-section:nth-child(even) {
+  background: var(--bg-tertiary);
+}
+
+.dark-mode .pagination a,
+.dark-mode .pagination span {
+  border-color: rgba(255,255,255,0.1);
+  color: var(--text-secondary);
+}
+
+.dark-mode .article-meta {
+  border-bottom-color: rgba(255,255,255,0.1);
+}
+
+.dark-mode .article-tags {
+  border-top-color: rgba(255,255,255,0.1);
+}
+
+.dark-mode ::selection {
+  background-color: var(--color-primary);
+  color: #000;
+}
+
+.dark-mode ::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+.dark-mode ::-webkit-scrollbar-thumb {
+  background: #444;
+}

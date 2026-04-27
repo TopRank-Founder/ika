@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="hi"><head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — पेज नहीं मिला | इंटरनेट की आवाज़</title>
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/variables.css"><link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css"><link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/responsive.css"><link rel="stylesheet" href="css/dark-mode.css">
+  <style>
+    .error-page { min-height: 80vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--space-8); }
+    .error-code { font-size: 8rem; font-weight: 900; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1; margin-bottom: var(--space-4); font-family: var(--font-english); }
+    .error-title { font-size: var(--text-3xl); margin-bottom: var(--space-4); }
+    .error-desc { color: var(--text-secondary); margin-bottom: var(--space-6); max-width: 500px; margin-left: auto; margin-right: auto; }
+    .error-links { display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap; }
+    .error-search { max-width: 400px; margin: 0 auto var(--space-6); }
+  </style>
+</head><body>
+  <!-- ═══ Top Bar ═══ -->
+  <div class="top-bar">
+    <div class="container flex-between">
+      <div class="date-display">
+        <i class="far fa-calendar-alt"></i>
+        <span id="hindi-date"></span>
+      </div>
+      <div class="top-bar-links">
+        <a href="about.html">हमारे बारे में</a>
+        <a href="contact.html">संपर्क करें</a>
+        <a href="admin.html">Admin</a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/Internetkiawaaz/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/internetkiawaaz" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/internetkiawaaz" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <button class="dark-mode-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Header ═══ -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-main">
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo.png" alt="इंटरनेट की आवाज़" class="logo-img">
+          <div class="logo-text">
+            <span class="logo-name">इंटरनेट की आवाज़</span>
+            <span class="logo-tagline">सच की आवाज़, हर ख़बर आपके साथ</span>
+          </div>
+        </a>
+        <div class="search-bar" id="header-search">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="खबरें खोजें..." aria-label="Search news">
+        </div>
+      </div>
+    </div>
+    <nav class="main-nav" id="main-nav">
+      <div class="container flex-between">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="index.html" class="active"><i class="fas fa-home"></i> होम</a></li>
+          <li class="nav-item"><a href="category.html?cat=breaking">🔴 ताज़ा खबर</a></li>
+          <li class="nav-item"><a href="category.html?cat=politics">🏛️ राजनीति</a></li>
+          <li class="nav-item"><a href="category.html?cat=crime">🚔 अपराध</a></li>
+          <li class="nav-item"><a href="category.html?cat=entertainment">🎬 मनोरंजन</a></li>
+          <li class="nav-item"><a href="category.html?cat=sports">🏏 खेल</a></li>
+          <li class="nav-item"><a href="category.html?cat=business">💼 व्यापार</a></li>
+          <li class="nav-item"><a href="category.html?cat=health">🏥 स्वास्थ्य</a></li>
+          <li class="nav-item"><a href="category.html?cat=education">📚 शिक्षा</a></li>
+          <li class="nav-item"><a href="category.html?cat=local">📍 स्थानीय</a></li>
+          <li class="nav-item"><a href="category.html?cat=video">🎥 वीडियो</a></li>
+        </ul>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <div style="padding: 0 var(--space-6); margin-bottom: var(--space-4);">
+      <a href="index.html" class="logo" style="margin-bottom: var(--space-4); display:flex; gap:8px; align-items:center;">
+        <img src="assets/images/logo.png" alt="Logo" style="height:36px;">
+        <span style="color:var(--color-primary); font-weight:800; font-size:1.1rem;">इंटरनेट की आवाज़</span>
+      </a>
+    </div>
+    <ul>
+      <li class="nav-item"><a href="index.html"><i class="fas fa-home"></i> होम</a></li>
+      <li class="nav-item"><a href="category.html?cat=breaking">🔴 ताज़ा खबर</a></li>
+      <li class="nav-item"><a href="category.html?cat=politics">🏛️ राजनीति</a></li>
+      <li class="nav-item"><a href="category.html?cat=crime">🚔 अपराध</a></li>
+      <li class="nav-item"><a href="category.html?cat=entertainment">🎬 मनोरंजन</a></li>
+      <li class="nav-item"><a href="category.html?cat=sports">🏏 खेल</a></li>
+      <li class="nav-item"><a href="category.html?cat=business">💼 व्यापार</a></li>
+      <li class="nav-item"><a href="category.html?cat=health">🏥 स्वास्थ्य</a></li>
+      <li class="nav-item"><a href="category.html?cat=education">📚 शिक्षा</a></li>
+      <li class="nav-item"><a href="category.html?cat=local">📍 स्थानीय</a></li>
+      <li class="nav-item"><a href="category.html?cat=video">🎥 वीडियो</a></li>
+    </ul>
+  </div>
+
+  <div class="error-page">
+    <div>
+      <div class="error-code">404</div>
+      <h1 class="error-title">पेज नहीं मिला!</h1>
+      <p class="error-desc">माफ़ कीजिए, आप जिस पेज की तलाश कर रहे हैं वह मौजूद नहीं है या हटा दिया गया है।</p>
+      <div class="error-search">
+        <div class="search-bar" style="max-width:100%;">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="खबरें खोजें..." onkeypress="if(event.key==='Enter'&&this.value.trim())location.href='search.html?q='+encodeURIComponent(this.value.trim())">
+        </div>
+      </div>
+      <div class="error-links">
+        <a href="index.html" class="btn btn-primary"><i class="fas fa-home"></i> होमपेज</a>
+        <a href="category.html?cat=breaking" class="btn btn-secondary">🔴 ताज़ा खबर</a>
+        <a href="category.html?cat=local" class="btn btn-outline">📍 स्थानीय खबरें</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>इंटरनेट की आवाज़</h3>
+          <p>सच की आवाज़, हर ख़बर आपके साथ। लखनऊ, गोंडा और पूरे उत्तर प्रदेश की ताज़ा और विश्वसनीय खबरें।</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/Internetkiawaaz/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/internetkiawaaz" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/internetkiawaaz" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/917905895936" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://share.google/hPRsqUP08zQfwfrJN" target="_blank"><i class="fab fa-google"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>श्रेणियाँ</h3>
+          <ul>
+            <li><a href="category.html?cat=politics"><i class="fas fa-chevron-right"></i> राजनीति</a></li>
+            <li><a href="category.html?cat=crime"><i class="fas fa-chevron-right"></i> अपराध</a></li>
+            <li><a href="category.html?cat=sports"><i class="fas fa-chevron-right"></i> खेल</a></li>
+            <li><a href="category.html?cat=entertainment"><i class="fas fa-chevron-right"></i> मनोरंजन</a></li>
+            <li><a href="category.html?cat=business"><i class="fas fa-chevron-right"></i> व्यापार</a></li>
+            <li><a href="category.html?cat=local"><i class="fas fa-chevron-right"></i> स्थानीय खबरें</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>त्वरित लिंक</h3>
+          <ul>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> हमारे बारे में</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> संपर्क करें</a></li>
+            <li><a href="terms.html"><i class="fas fa-chevron-right"></i> नियम और शर्तें</a></li>
+            <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> गोपनीयता नीति</a></li>
+            <li><a href="disclaimer.html"><i class="fas fa-chevron-right"></i> अस्वीकरण</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>संपर्क</h3>
+          <p><i class="fas fa-map-marker-alt"></i> लखनऊ, उत्तर प्रदेश, भारत</p>
+          <p><i class="fas fa-envelope"></i> info@internetkiawaaz.com</p>
+          <p><i class="fas fa-phone"></i> +91-7905895936</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024-2026 इंटरनेट की आवाज़ | Internet Ki Awaaz. सर्वाधिकार सुरक्षित।</p>
+        <p>Designed with ❤️ in Lucknow</p>
+      </div>
+    </div>
+  </footer>
+
+  
+  <script src="js/data.js"></script><script src="js/sample-data.js"></script><script src="js/app.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>{initSampleData();DarkMode.init();});</script>
+</body></html>

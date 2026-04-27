@@ -1,0 +1,181 @@
+/* ========================================
+   INTERNET KI AWAAZ — Responsive Styles
+   ======================================== */
+
+/* ── Tablet (max 1024px) ── */
+@media (max-width: 1024px) {
+  .main-layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-5);
+  }
+  .hero-section {
+    grid-template-columns: 1fr;
+  }
+  .news-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .news-card-hero {
+    min-height: 320px;
+  }
+  .news-card-hero .hero-overlay .card-title {
+    font-size: var(--text-2xl);
+  }
+}
+
+/* ── Mobile Large (max 768px) ── */
+@media (max-width: 768px) {
+  :root {
+    --text-4xl: 1.75rem;
+    --text-3xl: 1.5rem;
+    --text-2xl: 1.25rem;
+  }
+  .top-bar .date-display span:not(:first-child) {
+    display: none;
+  }
+  .top-bar-links {
+    display: none;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+  .main-nav .nav-list {
+    display: none;
+  }
+  .main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--space-4);
+    height: 46px;
+  }
+  .header-main {
+    padding: var(--space-3) 0;
+    flex-direction: column;
+    gap: var(--space-3);
+    align-items: flex-start;
+  }
+  .logo-name {
+    font-size: var(--text-lg);
+  }
+  .logo-tagline {
+    display: none;
+  }
+  .search-bar {
+    max-width: 100%;
+    width: 100%;
+  }
+  .search-bar input {
+    width: 100%;
+  }
+  .news-grid-3,
+  .news-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .news-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    grid-template-columns: 1fr;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-4);
+  }
+  .footer-social {
+    justify-content: center;
+  }
+  .footer-col h3 {
+    text-align: center;
+  }
+  .footer-col p {
+    text-align: center;
+  }
+  .footer-col ul {
+    align-items: center;
+  }
+  .news-card-hero {
+    min-height: 260px;
+  }
+  .news-card-hero .hero-overlay {
+    padding: var(--space-5) var(--space-4);
+  }
+  .news-card-hero .hero-overlay .card-title {
+    font-size: var(--text-xl);
+  }
+  .article-header h1 {
+    font-size: var(--text-2xl);
+  }
+  .pagination a, .pagination span {
+    width: 36px;
+    height: 36px;
+    font-size: var(--text-xs);
+  }
+  .container {
+    padding: 0 var(--space-3);
+  }
+  .section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  .ticker-label {
+    font-size: var(--text-xs);
+    padding: 0 var(--space-3);
+  }
+  .category-section {
+    margin-bottom: var(--space-5);
+    padding: var(--space-4) 0;
+  }
+  .share-buttons {
+    justify-content: center;
+  }
+}
+
+/* ── Mobile Small (max 480px) ── */
+@media (max-width: 480px) {
+  :root {
+    --text-4xl: 1.5rem;
+    --text-3xl: 1.25rem;
+  }
+  body {
+    font-size: var(--text-sm);
+  }
+  .news-card-horizontal .card-image {
+    width: 100px;
+    min-width: 100px;
+    height: 75px;
+  }
+  .news-card .card-body {
+    padding: var(--space-3);
+  }
+  .news-card .card-title {
+    font-size: var(--text-base);
+  }
+  .back-to-top {
+    width: 40px;
+    height: 40px;
+    bottom: var(--space-4);
+    right: var(--space-4);
+  }
+}
+
+/* ── Desktop Large (min 1400px) ── */
+@media (min-width: 1400px) {
+  .container {
+    max-width: var(--container-2xl);
+  }
+}

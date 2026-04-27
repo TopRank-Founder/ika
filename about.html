@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="hi"><head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>हमारे बारे में — इंटरनेट की आवाज़</title>
+  <meta name="description" content="इंटरनेट की आवाज़ — लखनऊ, गोंडा और उत्तर प्रदेश का प्रमुख डिजिटल न्यूज़ प्लेटफॉर्म">
+  <link rel="icon" href="assets/images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Devanagari:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/variables.css"><link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/components.css"><link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/responsive.css"><link rel="stylesheet" href="css/dark-mode.css">
+</head><body>
+  <!-- ═══ Top Bar ═══ -->
+  <div class="top-bar">
+    <div class="container flex-between">
+      <div class="date-display">
+        <i class="far fa-calendar-alt"></i>
+        <span id="hindi-date"></span>
+      </div>
+      <div class="top-bar-links">
+        <a href="about.html">हमारे बारे में</a>
+        <a href="contact.html">संपर्क करें</a>
+        <a href="admin.html">Admin</a>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/Internetkiawaaz/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/internetkiawaaz" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/internetkiawaaz" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+        <button class="dark-mode-toggle" aria-label="Toggle dark mode">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Header ═══ -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <div class="header-main">
+        <a href="index.html" class="logo">
+          <img src="assets/images/logo.png" alt="इंटरनेट की आवाज़" class="logo-img">
+          <div class="logo-text">
+            <span class="logo-name">इंटरनेट की आवाज़</span>
+            <span class="logo-tagline">सच की आवाज़, हर ख़बर आपके साथ</span>
+          </div>
+        </a>
+        <div class="search-bar" id="header-search">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="खबरें खोजें..." aria-label="Search news">
+        </div>
+      </div>
+    </div>
+    <nav class="main-nav" id="main-nav">
+      <div class="container flex-between">
+        <ul class="nav-list" id="nav-list">
+          <li class="nav-item"><a href="index.html" class="active"><i class="fas fa-home"></i> होम</a></li>
+          <li class="nav-item"><a href="category.html?cat=breaking">🔴 ताज़ा खबर</a></li>
+          <li class="nav-item"><a href="category.html?cat=politics">🏛️ राजनीति</a></li>
+          <li class="nav-item"><a href="category.html?cat=crime">🚔 अपराध</a></li>
+          <li class="nav-item"><a href="category.html?cat=entertainment">🎬 मनोरंजन</a></li>
+          <li class="nav-item"><a href="category.html?cat=sports">🏏 खेल</a></li>
+          <li class="nav-item"><a href="category.html?cat=business">💼 व्यापार</a></li>
+          <li class="nav-item"><a href="category.html?cat=health">🏥 स्वास्थ्य</a></li>
+          <li class="nav-item"><a href="category.html?cat=education">📚 शिक्षा</a></li>
+          <li class="nav-item"><a href="category.html?cat=local">📍 स्थानीय</a></li>
+          <li class="nav-item"><a href="category.html?cat=video">🎥 वीडियो</a></li>
+        </ul>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu-overlay" id="mobile-overlay"></div>
+  <div class="mobile-menu" id="mobile-menu">
+    <div style="padding: 0 var(--space-6); margin-bottom: var(--space-4);">
+      <a href="index.html" class="logo" style="margin-bottom: var(--space-4); display:flex; gap:8px; align-items:center;">
+        <img src="assets/images/logo.png" alt="Logo" style="height:36px;">
+        <span style="color:var(--color-primary); font-weight:800; font-size:1.1rem;">इंटरनेट की आवाज़</span>
+      </a>
+    </div>
+    <ul>
+      <li class="nav-item"><a href="index.html"><i class="fas fa-home"></i> होम</a></li>
+      <li class="nav-item"><a href="category.html?cat=breaking">🔴 ताज़ा खबर</a></li>
+      <li class="nav-item"><a href="category.html?cat=politics">🏛️ राजनीति</a></li>
+      <li class="nav-item"><a href="category.html?cat=c  <main class="container" style="padding:var(--space-8) 0;">
+    <nav class="breadcrumb"><a href="index.html">होम</a><span class="separator">/</span><span class="current">हमारे बारे में</span></nav>
+
+    <div class="premium-about-wrapper animate-on-scroll">
+      <div class="about-hero glass-panel">
+        <div class="about-hero-content">
+          <img src="assets/images/logo.png" alt="Logo" class="about-logo">
+          <h1 class="premium-title">इंटरनेट की आवाज़</h1>
+          <p class="premium-tagline">सच की आवाज़, हर ख़बर आपके साथ</p>
+          <div class="premium-divider"></div>
+          <p class="about-intro">हम उत्तर प्रदेश के सबसे तेजी से उभरते डिजिटल न्यूज़ नेटवर्क हैं। हमारा उद्देश्य न केवल खबरें पहुँचाना है, बल्कि समाज में जागरूकता और सकारात्मक बदलाव लाना है।</p>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card glass-panel animate-on-scroll" style="transition-delay: 0.1s;">
+          <i class="fas fa-users stat-icon"></i>
+          <h3 class="stat-number">10M+</h3>
+          <p class="stat-label">मासिक पाठक</p>
+        </div>
+        <div class="stat-card glass-panel animate-on-scroll" style="transition-delay: 0.2s;">
+          <i class="fas fa-map-marked-alt stat-icon"></i>
+          <h3 class="stat-number">75+</h3>
+          <p class="stat-label">जिले कवर किए</p>
+        </div>
+        <div class="stat-card glass-panel animate-on-scroll" style="transition-delay: 0.3s;">
+          <i class="fas fa-user-tie stat-icon"></i>
+          <h3 class="stat-number">50+</h3>
+          <p class="stat-label">संवाददाता</p>
+        </div>
+      </div>
+
+      <div class="mission-vision-grid">
+        <div class="glass-panel animate-on-scroll" style="padding: var(--space-6);">
+          <h2 class="section-heading-premium"><i class="fas fa-bullseye"></i> हमारा मिशन</h2>
+          <p>सटीक, त्वरित और निष्पक्ष पत्रकारिता के माध्यम से जनता की आवाज़ को सत्ता के गलियारों तक पहुँचाना। हम भ्रष्टाचार के खिलाफ और विकास के पक्ष में खड़े हैं।</p>
+        </div>
+        <div class="glass-panel animate-on-scroll" style="padding: var(--space-6);">
+          <h2 class="section-heading-premium"><i class="fas fa-eye"></i> हमारा विज़न</h2>
+          <p>डिजिटल मीडिया के क्षेत्र में भारत का सबसे भरोसेमंद नाम बनना। हम तकनीक का उपयोग करके पत्रकारिता के नए मानक स्थापित करना चाहते हैं।</p>
+        </div>
+      </div>
+
+      <div class="glass-panel animate-on-scroll text-center" style="padding: var(--space-8); margin-top: var(--space-6);">
+        <h2 class="section-heading-premium justify-center">📱 हमारे नेटवर्क से जुड़ें</h2>
+        <p style="margin-bottom: var(--space-6); color: var(--text-secondary);">सोशल मीडिया पर हमारे लाखों फॉलोअर्स के साथ जुड़ें और ताज़ा अपडेट्स पाएं।</p>
+        <div style="display:flex; gap:var(--space-4); justify-content:center; flex-wrap:wrap;">
+          <a href="https://www.facebook.com/Internetkiawaaz/" target="_blank" class="btn btn-premium" style="background:#1877F2;"><i class="fab fa-facebook-f"></i> Facebook</a>
+          <a href="https://www.instagram.com/internetkiawaaz" target="_blank" class="btn btn-premium" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);"><i class="fab fa-instagram"></i> Instagram</a>
+          <a href="https://www.youtube.com/internetkiawaaz" target="_blank" class="btn btn-premium" style="background:#FF0000;"><i class="fab fa-youtube"></i> YouTube</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <style>
+    .premium-about-wrapper { max-width: 1000px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-6); }
+    .glass-panel { background: var(--glass-bg); backdrop-filter: var(--glass-blur); -webkit-backdrop-filter: var(--glass-blur); border: var(--glass-border); border-radius: var(--radius-xl); box-shadow: var(--shadow-card); }
+    .about-hero { padding: var(--space-10) var(--space-6); text-align: center; position: relative; overflow: hidden; }
+    .about-hero::before { content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%; background: radial-gradient(circle, rgba(212,175,55,0.1) 0%, transparent 60%); z-index: -1; animation: spin 20s linear infinite; }
+    .about-logo { height: 100px; margin-bottom: var(--space-4); filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); }
+    .premium-title { font-size: var(--text-4xl); font-weight: var(--font-extrabold); color: var(--color-secondary); letter-spacing: -1px; margin-bottom: var(--space-2); }
+    .premium-tagline { font-size: var(--text-xl); color: var(--color-primary-dark); font-weight: var(--font-bold); margin-bottom: var(--space-6); }
+    .premium-divider { width: 60px; height: 4px; background: var(--color-primary); margin: 0 auto var(--space-6); border-radius: 2px; }
+    .about-intro { font-size: var(--text-lg); line-height: var(--leading-relaxed); color: var(--text-secondary); max-width: 700px; margin: 0 auto; }
+    
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+    .stat-card { padding: var(--space-6); text-align: center; transition: transform 0.4s ease; }
+    .stat-card:hover { transform: translateY(-10px); }
+    .stat-icon { font-size: var(--text-4xl); color: var(--color-primary); margin-bottom: var(--space-4); }
+    .stat-number { font-size: var(--text-3xl); font-weight: var(--font-extrabold); color: var(--color-secondary); font-family: var(--font-english); margin-bottom: var(--space-1); }
+    .stat-label { font-size: var(--text-sm); font-weight: var(--font-bold); color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 1px; }
+
+    .mission-vision-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+    .section-heading-premium { display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-2xl); color: var(--color-secondary); margin-bottom: var(--space-4); }
+    .justify-center { justify-content: center; }
+
+    .btn-premium { padding: var(--space-3) var(--space-8); font-size: var(--text-md); border-radius: var(--radius-full); color: #fff; font-weight: var(--font-bold); border: none; box-shadow: 0 4px 15px rgba(0,0,0,0.2); transition: all 0.3s ease; }
+    .btn-premium:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 8px 25px rgba(0,0,0,0.3); color: #fff; }
+
+    @keyframes spin { 100% { transform: rotate(360deg); } }
+    @media (max-width: 768px) {
+      .stats-grid, .mission-vision-grid { grid-template-columns: 1fr; }
+      .premium-title { font-size: var(--text-3xl); }
+    }
+  </style>ी और समय पर खबरें पहुँचाना। हम राजनीति, अपराध, खेल, मनोरंजन, व्यापार, स्वास्थ्य और शिक्षा सहित सभी क्षेत्रों की खबरें कवर करते हैं।</p>
+          <h2 style="color:var(--color-secondary); margin:var(--space-6) 0 var(--space-4);">📍 हमारी पहुँच</h2>
+          <p>लखनऊ और गोंडा से शुरू होकर, हम पूरे उत्तर प्रदेश और राष्ट्रीय स्तर की खबरें कवर करते हैं। हमारी टीम जमीनी स्तर पर काम करती है।</p>
+          <h2 style="color:var(--color-secondary); margin:var(--space-6) 0 var(--space-4);">📱 हमसे जुड़ें</h2>
+          <div style="display:flex; gap:var(--space-3); flex-wrap:wrap;">
+            <a href="https://www.facebook.com/Internetkiawaaz/" target="_blank" class="btn" style="background:#1877F2; color:#fff;"><i class="fab fa-facebook-f"></i> Facebook</a>
+            <a href="https://www.instagram.com/internetkiawaaz" target="_blank" class="btn" style="background:#E1306C; color:#fff;"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://www.youtube.com/internetkiawaaz" target="_blank" class="btn" style="background:#FF0000; color:#fff;"><i class="fab fa-youtube"></i> YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ═══ Footer ═══ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h3>इंटरनेट की आवाज़</h3>
+          <p>सच की आवाज़, हर ख़बर आपके साथ। लखनऊ, गोंडा और पूरे उत्तर प्रदेश की ताज़ा और विश्वसनीय खबरें।</p>
+          <div class="footer-social">
+            <a href="https://www.facebook.com/Internetkiawaaz/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/internetkiawaaz" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/internetkiawaaz" target="_blank"><i class="fab fa-youtube"></i></a>
+            <a href="https://wa.me/917905895936" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://share.google/hPRsqUP08zQfwfrJN" target="_blank"><i class="fab fa-google"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h3>श्रेणियाँ</h3>
+          <ul>
+            <li><a href="category.html?cat=politics"><i class="fas fa-chevron-right"></i> राजनीति</a></li>
+            <li><a href="category.html?cat=crime"><i class="fas fa-chevron-right"></i> अपराध</a></li>
+            <li><a href="category.html?cat=sports"><i class="fas fa-chevron-right"></i> खेल</a></li>
+            <li><a href="category.html?cat=entertainment"><i class="fas fa-chevron-right"></i> मनोरंजन</a></li>
+            <li><a href="category.html?cat=business"><i class="fas fa-chevron-right"></i> व्यापार</a></li>
+            <li><a href="category.html?cat=local"><i class="fas fa-chevron-right"></i> स्थानीय खबरें</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>त्वरित लिंक</h3>
+          <ul>
+            <li><a href="about.html"><i class="fas fa-chevron-right"></i> हमारे बारे में</a></li>
+            <li><a href="contact.html"><i class="fas fa-chevron-right"></i> संपर्क करें</a></li>
+            <li><a href="terms.html"><i class="fas fa-chevron-right"></i> नियम और शर्तें</a></li>
+            <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> गोपनीयता नीति</a></li>
+            <li><a href="disclaimer.html"><i class="fas fa-chevron-right"></i> अस्वीकरण</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h3>संपर्क</h3>
+          <p><i class="fas fa-map-marker-alt"></i> लखनऊ, उत्तर प्रदेश, भारत</p>
+          <p><i class="fas fa-envelope"></i> info@internetkiawaaz.com</p>
+          <p><i class="fas fa-phone"></i> +91-7905895936</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024-2026 इंटरनेट की आवाज़ | Internet Ki Awaaz. सर्वाधिकार सुरक्षित।</p>
+        <p>Designed with ❤️ in Lucknow</p>
+      </div>
+    </div>
+  </footer>
+
+  
+  <button class="back-to-top" id="back-to-top"><i class="fas fa-arrow-up"></i></button>
+  <script src="js/data.js"></script><script src="js/sample-data.js"></script><script src="js/app.js"></script>
+  <script>document.addEventListener('DOMContentLoaded',()=>{initSampleData();DarkMode.init();initStickyHeader();initMobileMenu();initBackToTop();document.getElementById('hindi-date').textContent=getHindiDate();});</script>
+</body></html>

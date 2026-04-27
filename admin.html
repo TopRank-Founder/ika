@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="hi"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Admin Panel — इंटरनेट की आवाज़</title>
+<link rel="icon" href="assets/images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="css/variables.css"><link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css"><link rel="stylesheet" href="css/admin.css">
+</head><body>
+
+<!-- LOGIN -->
+<div class="admin-login" id="login-screen">
+<div class="login-card">
+<img src="assets/images/logo.png" alt="Logo">
+<h2>Admin Login</h2>
+<p class="login-error" id="login-error">गलत पासवर्ड! पुनः प्रयास करें।</p>
+<input type="password" id="login-pass" placeholder="पासवर्ड दर्ज करें" onkeypress="if(event.key==='Enter')doLogin()">
+<button class="btn btn-primary btn-lg" style="width:100%" onclick="doLogin()">लॉगिन <i class="fas fa-sign-in-alt"></i></button>
+</div>
+</div>
+
+<!-- ADMIN PANEL -->
+<div class="admin-wrapper" id="admin-panel" style="display:none">
+<aside class="admin-sidebar" id="admin-sidebar">
+<div class="logo-area"><img src="assets/images/logo.png" alt="Logo"><span>एडमिन पैनल</span></div>
+<nav class="admin-nav">
+<a href="#" class="active" data-section="dashboard"><i class="fas fa-tachometer-alt"></i> डैशबोर्ड</a>
+<a href="#" data-section="posts"><i class="fas fa-newspaper"></i> पोस्ट</a>
+<a href="#" data-section="create"><i class="fas fa-plus-circle"></i> नई पोस्ट</a>
+<a href="#" data-section="breaking"><i class="fas fa-bolt"></i> ब्रेकिंग न्यूज़</a>
+<a href="#" data-section="categories"><i class="fas fa-folder"></i> श्रेणियाँ</a>
+<a href="#" data-section="pages"><i class="fas fa-file-alt"></i> पेज</a>
+<a href="#" data-section="settings"><i class="fas fa-cog"></i> सेटिंग्स</a>
+<a href="#" data-section="export"><i class="fas fa-database"></i> बैकअप</a>
+<a href="index.html"><i class="fas fa-external-link-alt"></i> वेबसाइट देखें</a>
+<a href="#" onclick="doLogout()"><i class="fas fa-sign-out-alt"></i> लॉगआउट</a>
+</nav>
+</aside>
+
+<main class="admin-main">
+<button id="sidebar-toggle" onclick="document.getElementById('admin-sidebar').classList.toggle('open')" style="display:none;position:fixed;top:10px;left:10px;z-index:999;background:var(--color-secondary);color:#fff;padding:8px 12px;border-radius:8px;"><i class="fas fa-bars"></i></button>
+
+<!-- DASHBOARD -->
+<section class="admin-section active" id="sec-dashboard">
+<div class="admin-header"><h1>📊 डैशबोर्ड</h1></div>
+<div class="stat-cards">
+<div class="stat-card"><div class="stat-icon" style="background:#1565c0"><i class="fas fa-newspaper"></i></div><div><div class="stat-value" id="stat-total">0</div><div class="stat-label">कुल पोस्ट</div></div></div>
+<div class="stat-card"><div class="stat-icon" style="background:#2e7d32"><i class="fas fa-check-circle"></i></div><div><div class="stat-value" id="stat-published">0</div><div class="stat-label">प्रकाशित</div></div></div>
+<div class="stat-card"><div class="stat-icon" style="background:#e65100"><i class="fas fa-edit"></i></div><div><div class="stat-value" id="stat-drafts">0</div><div class="stat-label">ड्राफ्ट</div></div></div>
+<div class="stat-card"><div class="stat-icon" style="background:#c62828"><i class="fas fa-eye"></i></div><div><div class="stat-value" id="stat-views">0</div><div class="stat-label">कुल व्यूज़</div></div></div>
+</div>
+<div class="admin-card"><h3>📰 हालिया पोस्ट</h3><table class="admin-table"><thead><tr><th>शीर्षक</th><th>श्रेणी</th><th>स्थिति</th><th>तिथि</th></tr></thead><tbody id="recent-posts"></tbody></table></div>
+</section>
+
+<!-- POSTS LIST -->
+<section class="admin-section" id="sec-posts">
+<div class="admin-header"><h1>📝 सभी पोस्ट</h1><button class="btn btn-primary" onclick="showSection('create')"><i class="fas fa-plus"></i> नई पोस्ट</button></div>
+<div class="admin-card"><table class="admin-table"><thead><tr><th>शीर्षक</th><th>श्रेणी</th><th>टाइप</th><th>स्थिति</th><th>व्यूज़</th><th>कार्रवाई</th></tr></thead><tbody id="all-posts"></tbody></table></div>
+</section>
+
+<!-- CREATE/EDIT POST -->
+<section class="admin-section" id="sec-create">
+<div class="admin-header"><h1 id="form-title">✏️ नई पोस्ट बनाएं</h1></div>
+<div class="admin-card">
+<form id="post-form" onsubmit="savePost(event)">
+<input type="hidden" id="edit-id">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+<div class="form-group"><label class="form-label">शीर्षक *</label><input class="form-input" id="f-title" required></div>
+<div class="form-group"><label class="form-label">श्रेणी *</label><select class="form-select" id="f-category" required></select></div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+<div class="form-group"><label class="form-label">पोस्ट टाइप</label><select class="form-select" id="f-type"><option value="article">लेख</option><option value="video">वीडियो</option><option value="story">स्टोरी</option><option value="gallery">गैलरी</option></select></div>
+<div class="form-group"><label class="form-label">टैग्स (कॉमा से अलग)</label><input class="form-input" id="f-tags" placeholder="राजनीति, यूपी, लखनऊ"></div>
+</div>
+<div class="form-group"><label class="form-label">सारांश</label><input class="form-input" id="f-excerpt" placeholder="खबर का छोटा सारांश"></div>
+<div class="form-group"><label class="form-label">विवरण (HTML) *</label><textarea class="form-textarea" id="f-body" required placeholder="<p>खबर का पूरा विवरण यहाँ लिखें...</p>"></textarea></div>
+<div class="form-group"><label class="form-label">थम्बनेल URL</label><input class="form-input" id="f-thumbnail" placeholder="https://... या खाली छोड़ें"></div>
+<div class="form-group"><label class="form-label">वीडियो URL (YouTube)</label><input class="form-input" id="f-video" placeholder="https://youtube.com/..."></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+<div class="form-group"><label class="form-label">SEO शीर्षक</label><input class="form-input" id="f-seo-title"></div>
+<div class="form-group"><label class="form-label">SEO विवरण</label><input class="form-input" id="f-seo-desc"></div>
+</div>
+<div class="form-group"><label class="form-label">लेखक</label><input class="form-input" id="f-author" value="संपादक"></div>
+<div style="display:flex;gap:var(--space-3);margin-top:var(--space-5)">
+<button type="submit" class="btn btn-primary btn-lg"><i class="fas fa-save"></i> प्रकाशित करें</button>
+<button type="button" class="btn btn-outline btn-lg" onclick="saveDraft()"><i class="fas fa-file"></i> ड्राफ्ट सेव करें</button>
+<button type="button" class="btn btn-lg" onclick="resetForm()" style="color:var(--text-secondary)">रद्द करें</button>
+</div>
+</form>
+</div>
+</section>
+
+<!-- BREAKING NEWS -->
+<section class="admin-section" id="sec-breaking">
+<div class="admin-header"><h1>🔴 ब्रेकिंग न्यूज़</h1></div>
+<div class="admin-card">
+<div style="display:flex;gap:var(--space-3);margin-bottom:var(--space-5)">
+<input class="form-input" id="bn-text" placeholder="ब्रेकिंग न्यूज़ टेक्स्ट..." style="flex:1">
+<button class="btn btn-primary" onclick="addBreaking()"><i class="fas fa-plus"></i> जोड़ें</button>
+</div>
+<div id="breaking-list"></div>
+</div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="admin-section" id="sec-categories">
+<div class="admin-header"><h1>📂 श्रेणियाँ</h1></div>
+<div class="admin-card"><table class="admin-table"><thead><tr><th>आइकन</th><th>नाम (हिंदी)</th><th>नाम (अंग्रेज़ी)</th><th>ID</th></tr></thead><tbody id="cat-list"></tbody></table></div>
+</section>
+
+<!-- PAGES -->
+<section class="admin-section" id="sec-pages">
+<div class="admin-header"><h1>📄 पेज एडिटर</h1></div>
+<div class="admin-card">
+<div class="form-group"><label class="form-label">पेज चुनें</label>
+<select class="form-select" id="page-select" onchange="loadPage()"><option value="about">हमारे बारे में</option><option value="terms">नियम और शर्तें</option><option value="privacy">गोपनीयता नीति</option><option value="disclaimer">अस्वीकरण</option></select></div>
+<div class="form-group"><label class="form-label">सामग्री (HTML)</label><textarea class="form-textarea" id="page-content" style="min-height:300px"></textarea></div>
+<button class="btn btn-primary" onclick="savePage()"><i class="fas fa-save"></i> सेव करें</button>
+</div>
+</section>
+
+<!-- SETTINGS -->
+<section class="admin-section" id="sec-settings">
+<div class="admin-header"><h1>⚙️ सेटिंग्स</h1></div>
+<div class="admin-card">
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--space-4)">
+<div class="form-group"><label class="form-label">साइट नाम</label><input class="form-input" id="s-name"></div>
+<div class="form-group"><label class="form-label">टैगलाइन</label><input class="form-input" id="s-tagline"></div>
+<div class="form-group"><label class="form-label">ईमेल</label><input class="form-input" id="s-email"></div>
+<div class="form-group"><label class="form-label">फोन</label><input class="form-input" id="s-phone"></div>
+<div class="form-group"><label class="form-label">Facebook URL</label><input class="form-input" id="s-facebook"></div>
+<div class="form-group"><label class="form-label">Instagram URL</label><input class="form-input" id="s-instagram"></div>
+<div class="form-group"><label class="form-label">YouTube URL</label><input class="form-input" id="s-youtube"></div>
+<div class="form-group"><label class="form-label">नया पासवर्ड</label><input class="form-input" id="s-password" type="password" placeholder="बदलने के लिए भरें"></div>
+</div>
+<button class="btn btn-primary btn-lg" onclick="saveSettings()" style="margin-top:var(--space-4)"><i class="fas fa-save"></i> सेटिंग्स सेव करें</button>
+</div>
+</section>
+
+<!-- EXPORT/IMPORT -->
+<section class="admin-section" id="sec-export">
+<div class="admin-header"><h1>💾 बैकअप और रीस्टोर</h1></div>
+<div class="admin-card">
+<h3>📤 डेटा एक्सपोर्ट</h3>
+<p style="color:var(--text-secondary);margin-bottom:var(--space-4)">सारा डेटा JSON फ़ाइल में डाउनलोड करें।</p>
+<button class="btn btn-primary" onclick="exportData()"><i class="fas fa-download"></i> एक्सपोर्ट करें</button>
+</div>
+<div class="admin-card">
+<h3>📥 डेटा इम्पोर्ट</h3>
+<p style="color:var(--text-secondary);margin-bottom:var(--space-4)">पहले से एक्सपोर्ट किया गया JSON अपलोड करें।</p>
+<input type="file" id="import-file" accept=".json" style="margin-bottom:var(--space-3)">
+<button class="btn btn-secondary" onclick="importData()"><i class="fas fa-upload"></i> इम्पोर्ट करें</button>
+</div>
+</section>
+
+</main>
+</div>
+
+<script src="js/data.js"></script><script src="js/sample-data.js"></script><script src="js/app.js"></script>
+<script>
+// Login
+function doLogin(){
+  initSampleData();
+  const pass=document.getElementById('login-pass').value;
+  const settings=DataStore.getSettings();
+  if(pass===(settings.adminPassword||'admin123')){
+    sessionStorage.setItem('ika_admin','true');
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('admin-panel').style.display='grid';
+    initAdmin();
+  } else {
+    document.getElementById('login-error').style.display='block';
+  }
+}
+function doLogout(){sessionStorage.removeItem('ika_admin');location.reload();}
+
+document.addEventListener('DOMContentLoaded',()=>{
+  initSampleData();
+  if(sessionStorage.getItem('ika_admin')==='true'){
+    document.getElementById('login-screen').style.display='none';
+    document.getElementById('admin-panel').style.display='grid';
+    initAdmin();
+  }
+  if(window.innerWidth<=768)document.getElementById('sidebar-toggle').style.display='block';
+});
+
+function initAdmin(){
+  loadDashboard();loadCategorySelect();loadCategories();loadPage();loadSettings();
+  document.querySelectorAll('.admin-nav a[data-section]').forEach(a=>{
+    a.addEventListener('click',e=>{e.preventDefault();showSection(a.dataset.section);
+      document.querySelectorAll('.admin-nav a').forEach(n=>n.classList.remove('active'));a.classList.add('active');
+    });
+  });
+}
+
+function showSection(id){
+  document.querySelectorAll('.admin-section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('sec-'+id).classList.add('active');
+  if(id==='dashboard')loadDashboard();
+  if(id==='posts')loadPosts();
+  if(id==='breaking')loadBreaking();
+}
+
+// Dashboard
+function loadDashboard(){
+  const articles=DataStore.get('articles');
+  document.getElementById('stat-total').textContent=articles.length;
+  document.getElementById('stat-published').textContent=articles.filter(a=>a.isPublished).length;
+  document.getElementById('stat-drafts').textContent=articles.filter(a=>!a.isPublished).length;
+  document.getElementById('stat-views').textContent=articles.reduce((s,a)=>s+(a.views||0),0);
+  document.getElementById('recent-posts').innerHTML=articles.slice(0,5).map(a=>`<tr>
+    <td style="max-width:300px" class="truncate">${a.title}</td>
+    <td>${getCategoryName(a.category)}</td>
+    <td><span class="badge-status ${a.isPublished?'badge-published':'badge-draft'}">${a.isPublished?'प्रकाशित':'ड्राफ्ट'}</span></td>
+    <td style="font-size:12px">${timeAgo(a.publishDate)}</td>
+  </tr>`).join('');
+}
+
+// Posts
+function loadPosts(){
+  const articles=DataStore.get('articles');
+  document.getElementById('all-posts').innerHTML=articles.map(a=>`<tr>
+    <td style="max-width:250px" class="truncate">${a.title}</td>
+    <td>${getCategoryName(a.category)}</td>
+    <td>${a.type||'article'}</td>
+    <td><span class="badge-status ${a.isPublished?'badge-published':'badge-draft'}">${a.isPublished?'प्रकाशित':'ड्राफ्ट'}</span></td>
+    <td>${a.views||0}</td>
+    <td class="admin-actions">
+      <button class="btn-edit" onclick="editPost('${a.id}')"><i class="fas fa-edit"></i></button>
+      <button class="btn-delete" onclick="deletePost('${a.id}')"><i class="fas fa-trash"></i></button>
+    </td>
+  </tr>`).join('');
+}
+
+function loadCategorySelect(){
+  const cats=DataStore.get('categories');
+  document.getElementById('f-category').innerHTML=cats.map(c=>`<option value="${c.id}">${c.icon} ${c.name}</option>`).join('');
+}
+
+function savePost(e){
+  e.preventDefault();
+  const id=document.getElementById('edit-id').value;
+  const data={
+    title:document.getElementById('f-title').value,
+    category:document.getElementById('f-category').value,
+    type:document.getElementById('f-type').value,
+    tags:document.getElementById('f-tags').value.split(',').map(t=>t.trim()).filter(Boolean),
+    excerpt:document.getElementById('f-excerpt').value,
+    body:document.getElementById('f-body').value,
+    thumbnail:document.getElementById('f-thumbnail').value,
+    videoUrl:document.getElementById('f-video').value,
+    seoTitle:document.getElementById('f-seo-title').value,
+    seoDescription:document.getElementById('f-seo-desc').value,
+    author:document.getElementById('f-author').value||'संपादक',
+    isPublished:true, publishDate:new Date().toISOString(),
+    slug:DataStore.generateSlug(document.getElementById('f-title').value)
+  };
+  if(id){DataStore.update('articles',id,data);showToast('पोस्ट अपडेट हो गई!','success');}
+  else{DataStore.create('articles',data);showToast('पोस्ट प्रकाशित हो गई!','success');}
+  resetForm();showSection('posts');
+}
+
+function saveDraft(){
+  const data={
+    title:document.getElementById('f-title').value||'बिना शीर्षक',
+    category:document.getElementById('f-category').value,type:document.getElementById('f-type').value,
+    body:document.getElementById('f-body').value,excerpt:document.getElementById('f-excerpt').value,
+    author:document.getElementById('f-author').value||'संपादक',
+    isPublished:false,publishDate:new Date().toISOString(),
+    slug:DataStore.generateSlug(document.getElementById('f-title').value||'draft')
+  };
+  const id=document.getElementById('edit-id').value;
+  if(id)DataStore.update('articles',id,data);else DataStore.create('articles',data);
+  showToast('ड्राफ्ट सेव हो गया!','success');resetForm();showSection('posts');
+}
+
+function editPost(id){
+  const a=DataStore.getById('articles',id);if(!a)return;
+  document.getElementById('edit-id').value=id;
+  document.getElementById('f-title').value=a.title||'';
+  document.getElementById('f-category').value=a.category||'';
+  document.getElementById('f-type').value=a.type||'article';
+  document.getElementById('f-tags').value=(a.tags||[]).join(', ');
+  document.getElementById('f-excerpt').value=a.excerpt||'';
+  document.getElementById('f-body').value=a.body||'';
+  document.getElementById('f-thumbnail').value=a.thumbnail||'';
+  document.getElementById('f-video').value=a.videoUrl||'';
+  document.getElementById('f-seo-title').value=a.seoTitle||'';
+  document.getElementById('f-seo-desc').value=a.seoDescription||'';
+  document.getElementById('f-author').value=a.author||'';
+  document.getElementById('form-title').textContent='✏️ पोस्ट संपादित करें';
+  showSection('create');
+}
+
+function deletePost(id){if(confirm('क्या आप इस पोस्ट को हटाना चाहते हैं?')){DataStore.delete('articles',id);loadPosts();showToast('पोस्ट हटा दी गई','error');}}
+function resetForm(){document.getElementById('post-form').reset();document.getElementById('edit-id').value='';document.getElementById('form-title').textContent='✏️ नई पोस्ट बनाएं';}
+
+// Breaking News
+function loadBreaking(){
+  const items=DataStore.get('breakingNews');
+  document.getElementById('breaking-list').innerHTML=items.map(n=>`
+    <div style="display:flex;align-items:center;gap:var(--space-3);padding:var(--space-3);border-bottom:1px solid var(--color-gray-200)">
+      <span style="flex:1;font-size:var(--text-sm)">${n.text}</span>
+      <button class="btn-delete" onclick="deleteBreaking('${n.id}')"><i class="fas fa-trash"></i></button>
+    </div>`).join('');
+}
+function addBreaking(){
+  const text=document.getElementById('bn-text').value.trim();if(!text)return;
+  DataStore.create('breakingNews',{text,isActive:true,link:'#'});
+  document.getElementById('bn-text').value='';loadBreaking();showToast('ब्रेकिंग न्यूज़ जोड़ी गई!','success');
+}
+function deleteBreaking(id){DataStore.delete('breakingNews',id);loadBreaking();}
+
+// Categories
+function loadCategories(){
+  const cats=DataStore.get('categories');
+  document.getElementById('cat-list').innerHTML=cats.map(c=>`<tr><td>${c.icon}</td><td>${c.name}</td><td>${c.nameEn}</td><td>${c.id}</td></tr>`).join('');
+}
+
+// Pages
+function loadPage(){
+  const slug=document.getElementById('page-select').value;
+  const page=DataStore.getPage(slug);
+  document.getElementById('page-content').value=page?page.content:'';
+}
+function savePage(){
+  DataStore.savePage(document.getElementById('page-select').value,document.getElementById('page-content').value);
+  showToast('पेज सेव हो गया!','success');
+}
+
+// Settings
+function loadSettings(){
+  const s=DataStore.getSettings();
+  document.getElementById('s-name').value=s.siteName||'';
+  document.getElementById('s-tagline').value=s.tagline||'';
+  document.getElementById('s-email').value=s.email||'';
+  document.getElementById('s-phone').value=s.phone||'';
+  document.getElementById('s-facebook').value=s.facebook||'';
+  document.getElementById('s-instagram').value=s.instagram||'';
+  document.getElementById('s-youtube').value=s.youtube||'';
+}
+function saveSettings(){
+  const s=DataStore.getSettings();
+  s.siteName=document.getElementById('s-name').value;
+  s.tagline=document.getElementById('s-tagline').value;
+  s.email=document.getElementById('s-email').value;
+  s.phone=document.getElementById('s-phone').value;
+  s.facebook=document.getElementById('s-facebook').value;
+  s.instagram=document.getElementById('s-instagram').value;
+  s.youtube=document.getElementById('s-youtube').value;
+  const np=document.getElementById('s-password').value;if(np)s.adminPassword=np;
+  DataStore.saveSettings(s);showToast('सेटिंग्स सेव हो गईं!','success');
+}
+
+// Export/Import
+function exportData(){
+  const blob=new Blob([DataStore.exportAll()],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='ika-backup-'+new Date().toISOString().slice(0,10)+'.json';a.click();
+  showToast('बैकअप डाउनलोड हो रहा है!','success');
+}
+function importData(){
+  const file=document.getElementById('import-file').files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{if(DataStore.importAll(e.target.result)){showToast('डेटा इम्पोर्ट हो गया!','success');initAdmin();}else showToast('इम्पोर्ट में त्रुटि!','error');};
+  reader.readAsText(file);
+}
+</script>
+</body></html>
